@@ -1,0 +1,231 @@
+.showcase {
+  background-color: var(--color-white);
+  overflow: hidden;
+}
+
+.showcase__header {
+  text-align: center;
+  padding: 120px 40px 80px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.showcase__eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 18px;
+}
+
+.showcase__title {
+  font-size: clamp(32px, 4.5vw, 52px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+}
+
+/* Full-width parallax image */
+.showcase__parallax {
+  position: relative;
+  height: 85vh;
+  min-height: 500px;
+  overflow: hidden;
+}
+
+.showcase__parallax-inner {
+  position: absolute;
+  inset: -15%;
+  will-change: transform;
+}
+
+.showcase__parallax-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.showcase__parallax-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 30%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+}
+
+.showcase__parallax-caption {
+  position: absolute;
+  bottom: 48px;
+  left: 48px;
+  color: var(--color-white);
+  z-index: 2;
+}
+
+.showcase__parallax-caption h3 {
+  font-size: clamp(24px, 3.5vw, 42px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+
+.showcase__parallax-caption p {
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 400px;
+}
+
+/* Gallery grid */
+.showcase__gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding: 24px 40px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.showcase__gallery-item {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.showcase__gallery-item--tall {
+  grid-row: span 2;
+}
+
+.showcase__gallery-img-wrap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.showcase__gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+.showcase__gallery-item:hover .showcase__gallery-img {
+  transform: scale(1.05);
+}
+
+.showcase__gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.55) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity var(--transition-medium);
+}
+
+.showcase__gallery-item:hover .showcase__gallery-overlay {
+  opacity: 1;
+}
+
+.showcase__gallery-info {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  color: var(--color-white);
+  transform: translateY(8px);
+  opacity: 0;
+  transition: transform var(--transition-medium),
+              opacity var(--transition-medium);
+}
+
+.showcase__gallery-item:hover .showcase__gallery-info {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.showcase__gallery-info h4 {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+
+.showcase__gallery-info p {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Image aspect ratios */
+.showcase__gallery-item:nth-child(1) { aspect-ratio: 3/4; }
+.showcase__gallery-item:nth-child(2) { aspect-ratio: 4/3; }
+.showcase__gallery-item:nth-child(3) { aspect-ratio: 4/3; }
+
+.showcase__texture-band {
+  background-color: var(--color-light);
+  padding: 80px 40px;
+  text-align: center;
+  margin-top: 24px;
+}
+
+.showcase__texture-band h3 {
+  font-size: clamp(24px, 3vw, 38px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--color-text-primary);
+  max-width: 600px;
+  margin: 0 auto 16px;
+  line-height: 1.2;
+}
+
+.showcase__texture-band p {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .showcase__header {
+    padding: 80px 24px 60px;
+  }
+
+  .showcase__gallery {
+    grid-template-columns: 1fr;
+    padding: 0 24px;
+  }
+
+  .showcase__gallery-item--tall {
+    grid-row: span 1;
+  }
+
+  .showcase__gallery-item:nth-child(n) {
+    aspect-ratio: 4/3;
+  }
+
+  .showcase__parallax {
+    height: 60vh;
+  }
+
+  .showcase__parallax-caption {
+    left: 24px;
+    bottom: 28px;
+  }
+
+  .showcase__texture-band {
+    padding: 60px 24px;
+  }
+}
